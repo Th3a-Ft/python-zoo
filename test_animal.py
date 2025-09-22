@@ -67,4 +67,13 @@ def test_add_zoo():
     zoo_paris = Zoo([donkey, tiger])
     zoo_london = Zoo([giraffe, mouse])
     zoo = Zoo([])
-    assert zoo.__add__(zoo_paris,zoo_london) == [donkey, tiger, giraffe, mouse]
+    assert zoo.__add__(zoo_paris, zoo_london) == [donkey, tiger, giraffe, mouse]
+
+
+def test_negative():
+    donkey = Animal(80, 95)
+    try:
+        donkey.weight = -3
+        assert False
+    except ValueError:
+        assert True
